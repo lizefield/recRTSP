@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # params
-#  $1 nas ip address
+#  $1 nas ip address [192.168.0.10]
 #  $2 nas username
 #  $3 nas password
-#  $4444 rtsp source address [rtsp://192.168.0.10/live0]
+#  $4444 rtsp source address [rtsp://192.168.0.11/live0]
 
 NAS_IP=$1
 NAS_USER=$2
 NAS_PASS=$3
 SOURCE_ADDRESS=$4
 
-CURRENT_DIR=$(pwd)
+CURRENT_DIR=${HOME}/recRTSP
 echo $CURRENT_DIR
 
 # ping check
