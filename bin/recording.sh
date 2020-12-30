@@ -63,7 +63,7 @@ do
     echo $TARGET_PARAMS
     echo $DATE_PARAM
     # convert
-    ffmpeg -f h264 ${TARGET_PARAMS} -vcodec copy ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
+    ffmpeg -y -f h264 ${TARGET_PARAMS} -vcodec copy ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
     # delete rtsp files
     echo delete rtsp files
     for DELETE_FILE in $TARGET_FILES
