@@ -65,6 +65,7 @@ do
     # convert
     ffmpeg -f h264 ${TARGET_PARAMS} -vcodec copy ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
     # delete rtsp files
+    echo delete rtsp files
     for DELETE_FILE in $TARGET_FILES
     do
       if [[ $DELETE_FILE == *"eufy-"* ]]; then
@@ -72,7 +73,10 @@ do
       fi
     done
     # backup to nas
+    echo backup to nas
     sudo cp ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4 /mnt/nas/security/cam/garage/
+    echo delete h264 file
+    echo ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
     rm -f ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
     break
   else
