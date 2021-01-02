@@ -1,4 +1,4 @@
 data/rtsp/eufy-*
 data/h264/eufy-*
-*.log
+*.log*
 

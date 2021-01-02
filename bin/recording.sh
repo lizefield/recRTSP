@@ -45,6 +45,7 @@ do
   echo $FILE
   TARGET_DATE=$(date '+%H:%M' -r ${FILE})
   DATE_PARAM=$(date '+%Y%m%d%H%M' -r ${FILE})
+  SAVE_DIR=$(date '+%Y%m%d' -r ${FILE})
   echo $TARGET_DATE
   TARGET_FILES=$(ls -ld ${CURRENT_DIR}/data/rtsp/*|grep ${TARGET_DATE})
   echo "$TARGET_FILES"
@@ -74,7 +75,11 @@ do
     done
     # backup to nas
     echo backup to nas
-    sudo cp ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4 /mnt/nas/security/cam/garage/
+    if [ ! -d /mnt/nas/security/cam/garage/${SAVE_DIR} ]; then
+      echo create ${SAVE_DIR}
+      sudo mkdir /mnt/nas/security/cam/garage/${SAVE_DIR}
+    fi
+    sudo cp ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4 /mnt/nas/security/cam/garage/${SAVE_DIR}
     echo delete h264 file
     echo ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
     rm -f ${CURRENT_DIR}/data/h264/eufy-garage-${DATE_PARAM}.mp4
