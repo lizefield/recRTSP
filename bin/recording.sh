@@ -4,7 +4,7 @@
 #  $1 nas ip address [192.168.0.10]
 #  $2 nas username
 #  $3 nas password
-#  $4444 rtsp source address [rtsp://192.168.0.11/live0]
+#  $4 rtsp source address [rtsp://192.168.0.11/live0]
 
 NAS_IP=$1
 NAS_USER=$2
